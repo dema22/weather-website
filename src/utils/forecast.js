@@ -15,7 +15,7 @@ const forecast = (latitude, longitude, callback) => {
         } else if (body.error) {
             callback("Unable to find location.", undefined);
         } else {
-            const weatherData = body.daily.data[1].summary + ` It is currently ${body.currently.temperature} degrees out. There is a ${body.currently.precipProbability}% chance of rain.`;
+            const weatherData = body.daily.data[0].summary + `It is currently ${body.currently.temperature} degrees out. There is a ${body.currently.precipProbability} chance of rain.` + ` The maximum temperate of the day is ${body.daily.data[0].temperatureHigh} and the minimum temperate is ${body.daily.data[0].temperatureLow }.`;
             callback(undefined, weatherData);
         }
     });
